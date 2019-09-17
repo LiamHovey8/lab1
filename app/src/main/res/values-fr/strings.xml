@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello_message">Hello Canada in french!</string>
+    <string name="ButtonText">I\’m a button</string>
+    <string name="app_name">Android Labs</string>
+
+    <string name="ButtonText2">CLICK HERE in french</string>
+    <string name="checkBox">CHECK THIS OUT in french</string>
+    <string name="Switch">French on / off</string>
+    <string name="hint">French Text Here </string>
+    <string name="GUI">Look at my French GUI </string>
+</resources>
