@@ -20,39 +20,44 @@ android:layout_height="wrap_content">
 
 
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-android:layout_width="wrap_content"
+<LinearLayout
+    android:layout_width="wrap_content"
 android:layout_height="wrap_content"
 android:orientation="horizontal"
 
     android:layout_gravity="fill">
-<Button android:id="@+id/button1"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_weight="1"
-    android:layout_gravity="fill"
-    android:text="@string/ButtonText2" />
-<CheckBox android:id="@+id/checkbox1"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_weight="1"
-    android:layout_gravity="fill"
-    android:text="@string/checkBox" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="334dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill"
+        android:layout_weight="1"
+        android:text="@string/ButtonText2" />
+
+    <CheckBox
+        android:id="@+id/checkbox1"
+        android:layout_width="339dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill"
+        android:layout_weight="1"
+        android:text="@string/checkBox" />
 </LinearLayout>
 
 
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-android:orientation="horizontal" android:layout_width="match_parent"
+<LinearLayout
+    android:orientation="horizontal" android:layout_width="match_parent"
 android:layout_height="wrap_content"
 >
-<ImageButton
-    android:id="@+id/image1"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_weight="1"
-    android:layout_gravity="fill"
-    android:src="@drawable/flag" />
+
+    <ImageButton
+        android:id="@+id/image1"
+        android:layout_width="137dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill"
+        android:layout_weight="1"
+        android:src="@drawable/flag" />
 <Switch
     android:id="@+id/Switch"
     android:layout_width="wrap_content"
