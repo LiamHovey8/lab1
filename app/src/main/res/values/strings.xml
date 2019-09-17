@@ -6,5 +6,6 @@
     <string name="checkBox">CHECK THIS OUT</string>
     <string name="Switch">Switch on / off</string>
     <string name="hint">Text Here </string>
+    <string name="GUI">Look at my GUI </string>
 
 </resources>
