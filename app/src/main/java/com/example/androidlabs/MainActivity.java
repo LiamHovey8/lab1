@@ -22,9 +22,9 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main3);
 
-        Button page1Button = findViewById(R.id.button1);
-        if(page1Button != null)
-            page1Button.setOnClickListener(v -> {
+        Button login = findViewById(R.id.button1);
+        if(login != null)
+            login.setOnClickListener(v -> {
                 Intent goToProfileActivity = new Intent(MainActivity.this,
                         ProfileActivity.class);
                     startActivity(goToProfileActivity);
