@@ -1,11 +1,14 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Android Labs</string>
     <string name="hello_message">Hello World!</string>
     <string name="ButtonText">I’m a button</string>
     <string name="ButtonText2">CLICK HERE</string>
     <string name="checkBox">CHECK THIS OUT</string>
     <string name="Switch">Switch on / off</string>
-    <string name="hint">Text Here </string>
+    <string name="hint" >Text Here </string>
+    <string name="hint2" >type email here </string>
     <string name="GUI">Look at my GUI </string>
+    <string name="email">Enter your email:</string>
+    <string name="password">Enter your password:</string>
 
 </resources>
