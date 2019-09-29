@@ -11,11 +11,13 @@ import android.widget.EditText;
 public class MainActivity extends AppCompatActivity {
 
     private SharedPreferences mPreferences;
-    private String sharedPrefFile = "com.example.android.hellosharedprefs";
+    private String sharedPrefFile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        sharedPrefFile = "com.example.android.hellosharedprefs";
         mPreferences = getSharedPreferences(sharedPrefFile, MODE_PRIVATE);
 
         setContentView(R.layout.activity_main3);
@@ -25,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
             page1Button.setOnClickListener(v -> {
                 Intent goToProfileActivity = new Intent(MainActivity.this,
                         ProfileActivity.class);
-                startActivity(goToProfileActivity);
+                    startActivity(goToProfileActivity);
             });
 
     }
