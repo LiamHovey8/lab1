@@ -5,7 +5,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_message"
+        android:text="@string/email"
     />
     <EditText
         android:id="@+id/email"
@@ -30,7 +30,7 @@
 
         android:layout_columnWeight="4"
 
-        android:hint="@string/hint2"
+        android:hint="@string/passwordHint"
         />
     <Button android:id="@+id/button1"
         android:layout_width="match_parent"

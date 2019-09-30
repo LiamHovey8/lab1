@@ -7,8 +7,15 @@
     <string name="Switch">Switch on / off</string>
     <string name="hint" >Text Here </string>
     <string name="hint2" >type email here </string>
+    <string name="passwordHint" >type password here </string>
     <string name="GUI">Look at my GUI </string>
-    <string name="email">Enter your email:</string>
+    <string name="email">Enter your email address:</string>
     <string name="password">Enter your password:</string>
+    <string name="TopProfile">Your Profile</string>
+    <string name="your_picture">Your picture</string>
+    <string name="your_profile">Your Profile</string>
+    <string name="your_name">Your name:</string>
+    <string name="enter_your_name">enter your name</string>
+    <string name="click_the_button_above_to_take_a_picture">Click the button above to take a picture</string>
 
 </resources>
