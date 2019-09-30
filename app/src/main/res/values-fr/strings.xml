@@ -9,4 +9,19 @@
     <string name="Switch">French on / off</string>
     <string name="hint">French Text Here </string>
     <string name="GUI">Look at my French GUI </string>
+
+
+
+    <string name="hint2" >tapez email ici</string>
+    <string name="passwordHint" >tapez le mot de passe ici </string>
+
+    <string name="email">Entrez votre adresse email:</string>
+    <string name="password">Tapez votre mot de passe:</string>
+    <string name="TopProfile">Votre profil</string>
+    <string name="your_picture">Ta photo</string>
+
+    <string name="your_name">Votre nom:</string>
+    <string name="enter_your_name">entrez votre nom</string>
+    <string name="click_the_button_above_to_take_a_picture">Cliquez sur le bouton ci-dessus pour prendre une photo</string>
+
 </resources>
