@@ -30,14 +30,11 @@ public class MainActivity extends AppCompatActivity {
 
         Button login = findViewById(R.id.button1);
         if(login != null) {
-            login.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View clk) {
-                    Intent goToProfileActivity = new Intent(MainActivity.this,
-                            ProfileActivity.class);
-                    goToProfileActivity.putExtra("email", editText.getText().toString());
-                    MainActivity.this.startActivityForResult(goToProfileActivity, 30);
-                }
+            login.setOnClickListener(clk -> {
+                Intent goToProfileActivity = new Intent(MainActivity.this,
+                        ProfileActivity.class);
+                goToProfileActivity.putExtra("email", editText.getText().toString());
+                MainActivity.this.startActivityForResult(goToProfileActivity, 30);
             });
         }
 

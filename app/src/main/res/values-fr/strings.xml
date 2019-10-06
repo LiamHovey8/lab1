@@ -23,5 +23,6 @@
     <string name="your_name">Votre nom:</string>
     <string name="enter_your_name">entrez votre nom</string>
     <string name="click_the_button_above_to_take_a_picture">Cliquez sur le bouton ci-dessus pour prendre une photo</string>
+    <string name="chatRoom">Aller discuter</string>
 
 </resources>

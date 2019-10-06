@@ -7,6 +7,7 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -42,6 +43,15 @@ public class ProfileActivity extends AppCompatActivity {
 
         });
         Log.e(ACTIVITY_NAME,"In function");
+        Button login = findViewById(R.id.goToChat);
+        if(login != null) {
+            login.setOnClickListener(clk -> {
+                Intent goToChatRoom = new Intent(ProfileActivity.this,
+                        ChatRoomActivity.class);
+
+                ProfileActivity.this.startActivityForResult(goToChatRoom, 50);
+            });
+        }
     }
 
     @Override
