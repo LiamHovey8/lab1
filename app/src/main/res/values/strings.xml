@@ -18,5 +18,7 @@
     <string name="enter_your_name">enter your name</string>
     <string name="click_the_button_above_to_take_a_picture">Click the button above to take a picture</string>
     <string name="chatRoom">Go to chat</string>
+    <string name="send">Send</string>
+    <string name="receive">Receive</string>
 
 </resources>

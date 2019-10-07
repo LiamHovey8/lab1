@@ -5,12 +5,16 @@
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/refresher"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/sendButton">
 
         <ListView
+            android:transcriptMode="alwaysScroll"
+            android:stackFromBottom="true"
             android:id="@+id/theList"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            />
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
@@ -20,16 +24,17 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:text="Send" />
+        android:text="@string/send" />
 
     <EditText
         android:id="@+id/chatMessage"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/sendButton"
+        android:layout_toLeftOf="@+id/receiveButton"
         android:layout_alignParentBottom="true"
 
-        android:hint="Type Here" />
+        android:hint="@string/hint" />
     <Button
         android:id="@+id/receiveButton"
         android:layout_width="wrap_content"
