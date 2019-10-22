@@ -1,6 +1,11 @@
 package com.example.androidlabs;
 
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -17,12 +22,33 @@ import java.util.ArrayList;
 public class ChatRoomActivity extends AppCompatActivity {
     ArrayList<Message> messageLog = new ArrayList<>();
     BaseAdapter messageAdapter;
+    SQLiteDatabase db;
+    DatabaseHelper dbOperner;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.chat_room_activity);
         ListView theList = findViewById(R.id.theList);
+
+        dbOperner =new DatabaseHelper(this);
+        db =dbOperner.getWritableDatabase();
+
+        String [] columns={DatabaseHelper.COL_ID,DatabaseHelper.MESSAGE,DatabaseHelper.SENT};
+        Cursor results =db.query(DatabaseHelper.TABLE_NAME,columns,null,null,null,null,null);
+
+        db.getVersion();
+        int messageColumnIndex = results.getColumnIndex(DatabaseHelper.MESSAGE);
+        int sentColumnIndex =results.getColumnIndex(DatabaseHelper.SENT);
+        int idColIndex = results.getColumnIndex(DatabaseHelper.COL_ID);
+        while(results.moveToNext()){
+            String message = results.getString(messageColumnIndex);
+            int sent = results.getInt(sentColumnIndex);
+            long id = results.getLong(idColIndex);
+
+            messageLog.add(new Message(message,sent,id));
+        }
         theList.setAdapter( messageAdapter = new MyListAdapter() );
         theList.setOnItemClickListener( ( lv, vw, pos, id) ->{
 
@@ -34,7 +60,13 @@ public class ChatRoomActivity extends AppCompatActivity {
         sendButton.setOnClickListener( clik -> {
             EditText edit = findViewById(R.id.chatMessage);
             String message = edit.getText().toString();
-            messageLog.add(new Message(message, true) );
+            ContentValues newRowValues = new ContentValues();
+            newRowValues.put(DatabaseHelper.MESSAGE,message);
+            newRowValues.put(DatabaseHelper.SENT,1);
+
+            long newID = db.insert(DatabaseHelper.TABLE_NAME,null,newRowValues);
+            printCursor(results);
+            messageLog.add(new Message(message, 1,newID) );
             messageAdapter.notifyDataSetChanged();
             edit.getText().clear();//update yourself
         });
@@ -42,12 +74,34 @@ public class ChatRoomActivity extends AppCompatActivity {
         reseveButton.setOnClickListener( clik -> {
             EditText edit = findViewById(R.id.chatMessage);
             String message = edit.getText().toString();
-            messageLog.add(new Message(message, false) );
+            ContentValues newRowValues = new ContentValues();
+            newRowValues.put(DatabaseHelper.MESSAGE,message);
+            newRowValues.put(DatabaseHelper.SENT,0);
+
+
+            long newID = db.insert(DatabaseHelper.TABLE_NAME,null,newRowValues);
+            printCursor(results);
+            messageLog.add(new Message(message, 0,newID) );
             messageAdapter.notifyDataSetChanged();
             edit.getText().clear();
         });
 
     }
+
+    public void printCursor(Cursor c){
+
+        Log.e("Database version number",""+DatabaseHelper.VERSION_NUM);
+        Log.e("number of columns","you have "+c.getColumnCount()+" Columns");
+        Log.e("name of columns",""+c.getColumnName(0)+", "+c.getColumnName(1)+", "+c.getColumnName(2));
+        Log.e("number of results",""+c.getCount()+"");
+        Log.e("row of results",""+c.getPosition()+"");
+    }
+/*    public static void onUpgrade(SQLiteDatabase database, int oldVersion, int newVersion){
+        public void printCursor(Cursor c){
+
+        }
+    }*/
+
     private class MyListAdapter extends BaseAdapter{
 
         @Override
@@ -67,13 +121,13 @@ public class ChatRoomActivity extends AppCompatActivity {
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            View thisRow = convertView;
+            View thisRow;
 
-            if(convertView == null)
-                thisRow = getLayoutInflater().inflate(R.layout.reseved_row,null);
+           // if(convertView == null)
+             //   thisRow = getLayoutInflater().inflate(R.layout.reseved_row,null);
 
             Message rowMessage = getItem(position);
-            if(rowMessage.getSent()){
+            if(rowMessage.getSent()==1){
                 thisRow = getLayoutInflater().inflate(R.layout.sent_row,null);
                 TextView itemText = thisRow.findViewById(R.id.chatLogMessage);
                 itemText.setText(rowMessage.getMessage());
@@ -84,6 +138,7 @@ public class ChatRoomActivity extends AppCompatActivity {
                 TextView itemText = thisRow.findViewById(R.id.chatLogMessage);
                 itemText.setText(rowMessage.getMessage());
             }
+
 
 
 
