@@ -43,8 +43,13 @@ public class ChatRoomActivity extends AppCompatActivity {
         int sentColumnIndex =results.getColumnIndex(DatabaseHelper.SENT);
         int idColIndex = results.getColumnIndex(DatabaseHelper.COL_ID);
         while(results.moveToNext()){
+            boolean sent;
             String message = results.getString(messageColumnIndex);
-            int sent = results.getInt(sentColumnIndex);
+            if(results.getInt(sentColumnIndex)==1)
+                sent = true;
+            else
+                sent = false;
+
             long id = results.getLong(idColIndex);
 
             messageLog.add(new Message(message,sent,id));
@@ -66,7 +71,7 @@ public class ChatRoomActivity extends AppCompatActivity {
 
             long newID = db.insert(DatabaseHelper.TABLE_NAME,null,newRowValues);
             printCursor(results);
-            messageLog.add(new Message(message, 1,newID) );
+            messageLog.add(new Message(message, true,newID) );
             messageAdapter.notifyDataSetChanged();
             edit.getText().clear();//update yourself
         });
@@ -81,7 +86,7 @@ public class ChatRoomActivity extends AppCompatActivity {
 
             long newID = db.insert(DatabaseHelper.TABLE_NAME,null,newRowValues);
             printCursor(results);
-            messageLog.add(new Message(message, 0,newID) );
+            messageLog.add(new Message(message, false,newID) );
             messageAdapter.notifyDataSetChanged();
             edit.getText().clear();
         });
@@ -90,11 +95,29 @@ public class ChatRoomActivity extends AppCompatActivity {
 
     public void printCursor(Cursor c){
 
+
         Log.e("Database version number",""+DatabaseHelper.VERSION_NUM);
         Log.e("number of columns","you have "+c.getColumnCount()+" Columns");
         Log.e("name of columns",""+c.getColumnName(0)+", "+c.getColumnName(1)+", "+c.getColumnName(2));
         Log.e("number of results",""+c.getCount()+"");
-        Log.e("row of results",""+c.getPosition()+"");
+        c.moveToFirst();
+        while(c.moveToNext()) {
+            int index;
+
+            index = c.getColumnIndexOrThrow("MESSAGE");
+            String message = c.getString(index);
+
+            index = c.getColumnIndexOrThrow("SENT");
+            int sent = c.getInt(index);
+
+            index = c.getColumnIndexOrThrow("_id");
+            long id = c.getLong(index);
+
+            Log.e("row of results",id+" "+sent+" "+message);
+
+        }
+
+
     }
 /*    public static void onUpgrade(SQLiteDatabase database, int oldVersion, int newVersion){
         public void printCursor(Cursor c){
@@ -127,7 +150,7 @@ public class ChatRoomActivity extends AppCompatActivity {
              //   thisRow = getLayoutInflater().inflate(R.layout.reseved_row,null);
 
             Message rowMessage = getItem(position);
-            if(rowMessage.getSent()==1){
+            if(rowMessage.getSent()){
                 thisRow = getLayoutInflater().inflate(R.layout.sent_row,null);
                 TextView itemText = thisRow.findViewById(R.id.chatLogMessage);
                 itemText.setText(rowMessage.getMessage());
