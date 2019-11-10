@@ -7,28 +7,31 @@
     tools:context=".WeatherForecast"
     android:orientation="vertical">
     <ImageView
+        android:contentDescription="weather icon"
         android:id="@+id/current_weather_image"
         android:layout_width="200dp"
         android:layout_height="200dp"/>
     <TextView
         android:id="@+id/current_temperature_value"
         android:layout_width="wrap_content"
-        android:layout_hight="wrap_content"
+        android:layout_height="wrap_content"
         />
     <TextView
         android:id="@+id/min_temperature_value"
         android:layout_width="wrap_content"
-        android:layout_hight="wrap_content"
+        android:layout_height="wrap_content"
         />
     <TextView
         android:id="@+id/max_temperature_value"
         android:layout_width="wrap_content"
-        android:layout_hight="wrap_content"
+        android:layout_height="wrap_content"
         />
     <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="?android:attr/progressBarStyleHorizontal"
         android:id="@+id/progress_bar"
         android:visibility="invisible"
-        android:style="?android:attr/progressBarStyleHorizontal"
         />
 
 </LiniarLayout>
