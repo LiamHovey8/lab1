@@ -5,9 +5,9 @@
     <string name="ButtonText2">CLICK HERE</string>
     <string name="checkBox">CHECK THIS OUT</string>
     <string name="Switch">Switch on / off</string>
-    <string name="hint" >Text Here </string>
-    <string name="hint2" >type email here </string>
-    <string name="passwordHint" >type password here </string>
+    <string name="hint">Text Here </string>
+    <string name="hint2">type email here </string>
+    <string name="passwordHint">type password here </string>
     <string name="GUI">Look at my GUI </string>
     <string name="email">Enter your email address:</string>
     <string name="password">Enter your password:</string>

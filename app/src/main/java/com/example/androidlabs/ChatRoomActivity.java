@@ -102,16 +102,16 @@ public class ChatRoomActivity extends AppCompatActivity {
         Log.e("number of results",""+c.getCount()+"");
         c.moveToFirst();
         while(c.moveToNext()) {
-            int index;
+            int i;
 
-            index = c.getColumnIndexOrThrow("MESSAGE");
-            String message = c.getString(index);
+            i = c.getColumnIndexOrThrow("MESSAGE");
+            String message = c.getString(i);
 
-            index = c.getColumnIndexOrThrow("SENT");
-            int sent = c.getInt(index);
+            i = c.getColumnIndexOrThrow("SENT");
+            int sent = c.getInt(i);
 
-            index = c.getColumnIndexOrThrow("_id");
-            long id = c.getLong(index);
+            i = c.getColumnIndexOrThrow("_id");
+            long id = c.getLong(i);
 
             Log.e("row of results",id+" "+sent+" "+message);
 

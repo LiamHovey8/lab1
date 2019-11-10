@@ -57,4 +57,10 @@
         android:layout_height="wrap_content"
         android:text="@string/chatRoom"
         />
+    <Button
+        android:id="@+id/goToWeather"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Weather Forecast"
+        />
 </LinearLayout>

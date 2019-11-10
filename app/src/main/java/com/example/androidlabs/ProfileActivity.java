@@ -52,6 +52,16 @@ public class ProfileActivity extends AppCompatActivity {
                 ProfileActivity.this.startActivityForResult(goToChatRoom, 50);
             });
         }
+        Log.e(ACTIVITY_NAME,"In function");
+        Button goToWeather = findViewById(R.id.goToWeather);
+        if(goToWeather != null) {
+            goToWeather.setOnClickListener(clk -> {
+                Intent goToWeatherForecast = new Intent(ProfileActivity.this,
+                        WeatherForecast.class);
+
+                ProfileActivity.this.startActivityForResult(goToWeatherForecast, 60);
+            });
+        }
     }
 
     @Override
