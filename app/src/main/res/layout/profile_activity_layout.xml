@@ -63,4 +63,9 @@
         android:layout_height="wrap_content"
         android:text="Weather Forecast"
         />
+    <Button
+        android:id="@+id/goToTestToolbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Go to toolbar"/>
 </LinearLayout>
